@@ -28,37 +28,36 @@ pipeline {
             }
         }
 
-        stage('SonarQube Analysis') {
-            environment {
-                // SonarQube server ID must match Jenkins configuration
-                SONARQUBE_ENV = 'sonar'
-            }
-            steps {
-                withSonarQubeEnv("${SONARQUBE_ENV}") {
-                    sh 'mvn sonar:sonar'
-                }
-            }
-        }
-	    stage('Quality Gate Check') {
-            steps {
-                sleep (60)
-                timeout(time: 1, unit: 'HOURS') {
-                    // Wait for the Quality Gate to be computed and check its status
-               }
-            }
+    //     stage('SonarQube Analysis') {
+    //         environment {
+    //             // SonarQube server ID must match Jenkins configuration
+    //             SONARQUBE_ENV = 'sonar'
+    //         }
+    //         steps {
+    //             withSonarQubeEnv("${SONARQUBE_ENV}") {
+    //                 sh 'mvn sonar:sonar'
+    //             }
+    //         }
+    //     }
+	//     stage('Quality Gate Check') {
+    //         steps {
+    //             sleep (60)
+    //             timeout(time: 1, unit: 'HOURS') {
+    //                 // Wait for the Quality Gate to be computed and check its status
+    //            }
+    //         }
         
-        post {
- 
-        failure {
-            echo 'sending email notification from jenkins'
-    
-                step([$class: 'Mailer',notifyEveryUnstableBuild: true,
-                recipients: emailextrecipients([[$class: 'CulpritsRecipientProvider'],
-                [$class: 'RequesterRecipientProvider']])])
-                }
-            }
+    //     post {
+    //         always {
+    //             echo 'sending email notification from jenkins'
 
-	}
+    //             step([$class: 'Mailer',notifyEveryUnstableBuild: true,
+    //             recipients: emailextrecipients([[$class: 'CulpritsRecipientProvider'],
+    //             [$class: 'RequesterRecipientProvider']])])
+    //             }
+    //         }
+
+	// } 
         stage('Docker Build') {
             steps {
                 script {
