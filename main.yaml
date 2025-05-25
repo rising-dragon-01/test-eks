@@ -1,35 +1,37 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: myweb-deployment
-  labels:
-    app: myweb
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: myweb
-  template:
-    metadata:
-      labels:
-        app: myweb
-    spec:
-      containers:
-        - name: myweb
-          image: 977098995865.dkr.ecr.ap-south-1.amazonaws.com/test/first:latest
-          ports:
-            - containerPort: 8080
+# This is a Kubernetes Deployment manifest
+# This manifest creates a Deployment that manages a set of replicas of a Pod
+# The Deployment ensures that the desired number of replicas are running at all times
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: myweb-service
+  name: loadbalancer-svc
 spec:
+  type: LoadBalancer
   selector:
-    app: myweb
+    app: hello
   ports:
-    - protocol: TCP
+    - name: http
+      protocol: TCP
       port: 80
       targetPort: 8080
-  type: LoadBalancer
 ---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: loadbalancer-pod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello
+  template:
+    metadata:
+      labels:
+        app: hello 
+    spec:
+      containers:
+        - name: hello
+          image: httpd
+          ports:
+            - containerPort: 8080
