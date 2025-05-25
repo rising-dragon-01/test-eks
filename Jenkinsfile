@@ -103,7 +103,7 @@ pipeline {
                 script {
                     //def dockerTag = "${env.BUILD_NUMBER}"
                     //sh "sed -i 's|image: my-docker-image:latest|image: ${ECR_REPO}:${dockerTag}|' main.yml"
-                    sh "kubectl apply -f main.yaml "
+                    sh "kubectl apply -f main.yaml"
                 }
             }
         }
