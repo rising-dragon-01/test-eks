@@ -1,11 +1,36 @@
 <html lang="en">
 <head>
   <title>Employee Application</title>
-  <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-@@ -10,50 +10,9 @@
+  <style>
+    .colorful-text {
+      font-size: 2em;
+      font-weight: bold;
+      background: linear-gradient(90deg, #ff6a00, #ee0979, #00c3ff, #92fe9d);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .fun-btn {
+      margin: 5px;
+      font-size: 1.2em;
+      font-weight: bold;
+      border-radius: 25px;
+      transition: background 0.3s;
+    }
+    .fun-btn-1 { background: #ff6a00; color: #fff; }
+    .fun-btn-1:hover { background: #ee0979; }
+    .fun-btn-2 { background: #00c3ff; color: #fff; }
+    .fun-btn-2:hover { background: #92fe9d; color: #333; }
+    .fun-btn-3 { background: #ee0979; color: #fff; }
+    .fun-btn-3:hover { background: #ff6a00; }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
 
@@ -25,11 +50,17 @@
 
 <div class="container">
   <div class="jumbotron">
+    <div class="colorful-text">Welcome to the Colorful Employee Portal!</div>
     <h1>EMPLOYEE APPLICATION!</h1>
     <p>Welcome to employee portal.</p>
     <p>
       <button id="helloBtn" class="btn btn-primary btn-lg">Click Me!</button>
     </p>
+    <div style="text-align:center;">
+      <button class="fun-btn fun-btn-1" onclick="alert('You clicked the Orange button!')">Orange</button>
+      <button class="fun-btn fun-btn-2" onclick="alert('You clicked the Blue button!')">Blue</button>
+      <button class="fun-btn fun-btn-3" onclick="alert('You clicked the Pink button!')">Pink</button>
+    </div>
   </div>
 
   <div class="row">
@@ -46,8 +77,9 @@
       <p>Analyze employee performance and generate insightful reports.</p>
     </div>
   </div>
-<div class="container-fluid">
-  <h1>Hi this is my first project work</h1>
+  <div class="container-fluid">
+    <h1>Hi this is my first project work</h1>
+  </div>
 </div>
 
 <script>
