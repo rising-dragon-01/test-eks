@@ -1,6 +1,7 @@
 # This is a Kubernetes Deployment manifest
 # This manifest creates a Deployment that manages a set of replicas of a Pod
 # The Deployment ensures that the desired number of replicas are running at all times
+
 ---
 apiVersion: v1
 kind: Service
