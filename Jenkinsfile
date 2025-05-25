@@ -18,7 +18,7 @@ pipeline {
     stages {
         stage('SCM Checkout') {
             steps {
-                git branch: 'master', url: 'https://github.com/rising-dragon-01/eks-deploy.git'
+                git branch: 'master', url: 'https://github.com/rising-dragon-01/test-eks.git'
             }
         }
 
