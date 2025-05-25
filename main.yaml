@@ -32,6 +32,6 @@ spec:
     spec:
       containers:
         - name: hello
-          image: httpd
+          image: 977098995865.dkr.ecr.ap-south-1.amazonaws.com/dev/test:latest
           ports:
             - containerPort: 8080

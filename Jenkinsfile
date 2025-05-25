@@ -7,9 +7,10 @@ pipeline {
     environment {
     //   #  DOCKERHUB_CREDENTIALS = credentials('dockerPass')
         AWS_REGION = 'ap-south-1'
-        ECR_REPO = '977098995865.dkr.ecr.ap-south-1.amazonaws.com/test/first:latest'
         ECR_REPO_URL = '977098995865.dkr.ecr.ap-south-1.amazonaws.com'
-        dockerImage = 'webapp01'
+        ECR_REPO = '977098995865.dkr.ecr.ap-south-1.amazonaws.com/dev/test:latest'
+
+        dockerImage = 'dev/test'
         // DOCKER_CREDENTIALS_ID = credentials('dockerhub')
     }
     // }
@@ -64,7 +65,7 @@ pipeline {
                     // Define Docker image name and tag
                     def dockerTag = "${env.BUILD_NUMBER}"
                     // Build and tag the Docker image
-                    sh "docker build -t webapp01:${dockerTag} ."  
+                    sh "docker build -t dev/test:${dockerTag} ."  
                     // Push the Docker image to ECR
                     //sh "docker push ${ECR_REPO_URL}:${dockerTag}"
                 }
